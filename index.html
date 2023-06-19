@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="Bookmark" href="./assets/img/favicon.ico"/>
+	<link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon"/>
+  <title>商品列表</title>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <h2>商品列表</h2>
+      <div id="itemList"></div>
+    </div>
+    <div class="right-section">
+      <h2>购物车</h2>
+      <div id="cartList"></div>
+      <div id="totalPrice"></div>
+      <button type="button" class="disabled" id="checkoutBtn" disabled>
+        结算
+      </button>
+    </div>
+  </div>
+
+  <form class="hidden" id="payment-form">
+    <div id="link-authentication-element">
+      <!--Stripe.js injects the Link Authentication Element-->
+    </div>
+    <div id="payment-element">
+      <!--Stripe.js injects the Payment Element-->
+    </div>
+    <button id="submit">
+      <div class="spinner hidden" id="spinner"></div>
+      <span id="button-text">Pay now</span>
+    </button>
+    <div id="payment-message" class="hidden"></div>
+  </form>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/checkout.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
