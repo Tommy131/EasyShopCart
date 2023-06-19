@@ -10,14 +10,14 @@
  * @Date         : 2023-06-19 21:16:49
  * @Author       : HanskiJay
  * @LastEditors  : HanskiJay
- * @LastEditTime : 2023-06-19 21:30:06
+ * @LastEditTime : 2023-06-19 23:33:37
  * @E-Mail       : support@owoblog.com
  * @Telegram     : https://t.me/HanskiJay
  * @GitHub       : https://github.com/Tommy131
  */
 
 const config = {
-    publicKey: 'YOUR_PUBLIC_KEY',
+    publicKey: 'YOUR_PUBLIC_API_KEY',
     orderCreateSite: '/stripe/create.php',
     returnUrl: 'http://test.com/stripe/'
-}
+};

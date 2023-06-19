@@ -10,7 +10,7 @@
  * @Date         : 2023-06-19 21:16:49
  * @Author       : HanskiJay
  * @LastEditors  : HanskiJay
- * @LastEditTime : 2023-06-19 21:16:50
+ * @LastEditTime : 2023-06-19 21:59:33
  * @E-Mail       : support@owoblog.com
  * @Telegram     : https://t.me/HanskiJay
  * @GitHub       : https://github.com/Tommy131
@@ -336,7 +336,7 @@ button:hover {
 }
 
 .popup.show {
-  opacity: 1!important;
+  opacity: 1;
   transform: scale(1);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -352,13 +352,13 @@ button:hover {
     opacity: 0;
   }
   to {
-    opacity: 1!important;
+    opacity: 1;
   }
 }
 
 @keyframes popupFadeOut {
   from {
-    opacity: 1!important;
+    opacity: 1;
   }
   to {
     opacity: 0;
@@ -371,14 +371,14 @@ button:hover {
     transform: scale(0.8);
   }
   to {
-    opacity: 1!important;
+    opacity: 1;
     transform: scale(1);
   }
 }
 
 @keyframes popupScaleOut {
   from {
-    opacity: 1!important;
+    opacity: 1;
     transform: scale(1);
   }
   to {
@@ -391,6 +391,12 @@ button:hover {
 @media screen and (max-width: 2035px) {
   .container {
     width: 80%;
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  #payment-form {
+    min-width: calc(100% - 72vw)!important;
   }
 }
 

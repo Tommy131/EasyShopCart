@@ -10,71 +10,11 @@
  * @Date         : 2023-06-19 21:16:49
  * @Author       : HanskiJay
  * @LastEditors  : HanskiJay
- * @LastEditTime : 2023-06-19 21:28:14
+ * @LastEditTime : 2023-06-19 22:06:01
  * @E-Mail       : support@owoblog.com
  * @Telegram     : https://t.me/HanskiJay
  * @GitHub       : https://github.com/Tommy131
  */
-
-// 商品列表
-const itemList = [
-  {
-    id: 1000,
-    name: '来一瓶矿泉水',
-    stock: 2000,
-    normalPrice: 0.45,
-    discountedPrice: null,
-    thumbnail: './assets/img/water_bottle.svg'
-  },
-  {
-    id: 1001,
-    name: '来一杯卡布奇诺',
-    stock: 100,
-    normalPrice: 2.79,
-    discountedPrice: 1.8,
-    thumbnail: './assets/img/cappuccino.svg'
-  },
-  {
-    id: 1002,
-    name: '来一杯奶茶',
-    stock: 100,
-    normalPrice: 15,
-    discountedPrice: 10,
-    thumbnail: './assets/img/bubble_tea.svg'
-  },
-  {
-    id: 2000,
-    name: '来一块巧克力',
-    stock: 200,
-    normalPrice: 4.99,
-    discountedPrice: 2.99,
-    thumbnail: './assets/img/chocolate_bar.svg'
-  },
-  {
-    id: 2001,
-    name: '来一包原味薯片',
-    stock: 30,
-    normalPrice: 2.79,
-    discountedPrice: 1.99,
-    thumbnail: './assets/img/chips_snack.svg'
-  },
-  {
-    id: 2002,
-    name: '来一包薯条',
-    stock: 5,
-    normalPrice: 2.99,
-    discountedPrice: 2.5,
-    thumbnail: './assets/img/chips.svg'
-  },
-  {
-    id: 10,
-    name: '来一波天霸动霸Tua',
-    stock: 10,
-    normalPrice: 59.99,
-    discountedPrice: 35.99,
-    thumbnail: './assets/img/tua.jpg'
-  },
-];
 
 const unit = '€'; // 商品价格单位
 
@@ -289,7 +229,7 @@ const cartOperations = {
 
     totalPrice = total;
     document.getElementById('totalPrice').innerHTML = `<b>价格总计</b> <span class="total-price">${total.toFixed(2)}${unit}</span>`;
-    toggleButton.toggle(checkoutBtn, Object.keys(cartItems).length === 0);
+    toggleButton.toggle(checkoutBtn, (Object.keys(cartItems).length === 0) || (totalPrice < 1));
   },
 
   // 结算事件处理
@@ -403,11 +343,13 @@ const displayItems = {
 // 监听文档的点击事件
 document.addEventListener('click', function(event) {
   const formDiv = document.getElementById('payment-form');
+  const submitButton = document.getElementById('submit');
   const targetDiv = document.querySelector('.container');
   const isClickInside = targetDiv.contains(event.target);
 
   // 如果点击目标不在目标 div 内部，则关闭目标 div
-  if (!isClickInside) {
+  let condition = (event.target !== formDiv) && (event.target !== submitButton);
+  if ((!isClickInside) && condition) {
     formDiv.classList.add('hidden');
     popup.overlay().remove();
   }

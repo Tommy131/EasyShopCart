@@ -2,9 +2,11 @@
 
 ![CodeFactor](https://www.codefactor.io/repository/github/tommy131/easyshopcart/badge) ![License](https://img.shields.io/badge/license-GPLv3-blue) [Learn More](https://opensource.org/license/gpl-3-0/)
 
-一个对接了Stripe集成支付系统的简易的购买单页网页  
+一个对接了Stripe集成支付系统的简易的购买单页网页
 
 如果您觉得本项目对您有帮助, 请给本项目一颗小小的 `Star` 呗QWQ
+
+项目打赏/​捐赠地址：<https://owoblog.com/donation/>
 
 ## 功能列表
 
@@ -26,7 +28,8 @@
 
 ## 使用方法
 
-按需修改好配置文件之后即可立刻使用.
+1. 在项目根目录下输入 `composer install` 安装Stripe依赖环境.
+2. 按需修改好配置文件之后即可立刻使用.
 
 ## 配置文件
 
@@ -34,7 +37,7 @@
 
 ```js
 const config = {
-    publicKey: 'YOUR_PUBLIC_KEY',          // Stripe提供的公钥
+    publicKey: 'YOUR_PUBLIC_API_KEY',          // Stripe提供的公钥
     orderCreateSite: '/stripe/create.php', // 支付处理后端接口
     returnUrl: 'http://test.com/stripe/'   // 支付成功/失败回调地址
 }
@@ -62,7 +65,6 @@ $stripeSecretKey = 'YOUR_SECRET_API_KEY';
 
 结算页面展示
 ![Added items to cart](./assets/demo/payment.png)
-![Added items to cart](./assets/demo/added_to_cart.png)
 
 微信支付模拟
 ![Added items to cart](./assets/demo/simulated_wxpay.png)
