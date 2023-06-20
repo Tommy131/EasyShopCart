@@ -10,18 +10,16 @@
  * @Date         : 2023-06-19 21:16:49
  * @Author       : HanskiJay
  * @LastEditors  : HanskiJay
- * @LastEditTime : 2023-06-19 22:06:01
+ * @LastEditTime : 2023-06-20 15:26:39
  * @E-Mail       : support@owoblog.com
  * @Telegram     : https://t.me/HanskiJay
  * @GitHub       : https://github.com/Tommy131
  */
 
-const unit = '€'; // 商品价格单位
-
 // 获取DOM元素
 const itemContainer = document.getElementById('itemList');
 const cartContainer = document.getElementById('cartList');
-const checkoutBtn = document.getElementById('checkoutBtn');
+const checkoutButton = document.getElementById('checkoutButton');
 
 const cartItems = []; // 购物车商品对象
 
@@ -207,9 +205,9 @@ const cartOperations = {
       cartItemDiv.innerHTML = `
       <div class="width-fixed">
         <span><b>${item.name}</b></span>
-        <span>${price}${unit}</span>
+        <span>${price}${config.unit}</span>
         <span>${cartItem.quantity}x</span>
-        <span>${count}${unit}</span>
+        <span>${count}${config.unit}</span>
       </div>
       <div class="button-area">
         <button type="button" class="decreaseButton" onclick="cartOperations.decreaseQuantity(${cartItem.id})">-</button>
@@ -228,8 +226,9 @@ const cartOperations = {
     });
 
     totalPrice = total;
-    document.getElementById('totalPrice').innerHTML = `<b>价格总计</b> <span class="total-price">${total.toFixed(2)}${unit}</span>`;
-    toggleButton.toggle(checkoutBtn, (Object.keys(cartItems).length === 0) || (totalPrice < 1));
+    document.getElementById('totalPrice').classList.remove('hidden');
+    document.querySelector('#totalPrice span').innerText = `${total.toFixed(2)}${config.unit}`;
+    toggleButton.toggle(checkoutButton, (Object.keys(cartItems).length === 0) || (totalPrice < 1));
   },
 
   // 结算事件处理
@@ -313,7 +312,9 @@ const displayItems = {
 
       const stock = item.stock;
       itemDiv.innerHTML = `
-        <img src="${item.thumbnail}" alt="${item.name}">
+        <div class="thumbnail">
+          <img src="${item.thumbnail}" alt="${item.name}">
+        </div>
         <div class="item-box" id="itemId_${item.id}">
           <p class="item-name">${item.name}</p>
           <div class="price-container">N/A</div>
@@ -329,12 +330,12 @@ const displayItems = {
       if (item.discountedPrice > 0) {
         const percentage = Math.round((item.normalPrice - item.discountedPrice) / item.normalPrice * 100);
         priceContainer.innerHTML = `
-          <p class="discount-price">${item.discountedPrice.toFixed(2)}${unit}</p>
-          <p class="unavailable-price">${item.normalPrice.toFixed(2)}${unit}</p>
+          <p class="discount-price">${item.discountedPrice.toFixed(2)}${config.unit}</p>
+          <p class="unavailable-price">${item.normalPrice.toFixed(2)}${config.unit}</p>
           <p class="discount-percentage">${percentage}% OFF</p>
         `;
       } else {
-        priceContainer.innerHTML = `<p class="normal-price">${item.normalPrice}${unit}</div>`;
+        priceContainer.innerHTML = `<p class="normal-price">${item.normalPrice}${config.unit}</div>`;
       }
     });
   }
@@ -356,7 +357,7 @@ document.addEventListener('click', function(event) {
 });
 
 // 监听结算按钮点击事件
-checkoutBtn.addEventListener('click', cartOperations.checkout.bind(cartOperations));
+checkoutButton.addEventListener('click', cartOperations.checkout.bind(cartOperations));
 
 // 显示商品列表
 displayItems.show();

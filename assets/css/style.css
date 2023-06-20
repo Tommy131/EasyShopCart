@@ -10,7 +10,7 @@
  * @Date         : 2023-06-19 21:16:49
  * @Author       : HanskiJay
  * @LastEditors  : HanskiJay
- * @LastEditTime : 2023-06-19 21:59:33
+ * @LastEditTime : 2023-06-20 14:57:01
  * @E-Mail       : support@owoblog.com
  * @Telegram     : https://t.me/HanskiJay
  * @GitHub       : https://github.com/Tommy131
@@ -45,6 +45,11 @@ p {
   padding: 0;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 button {
   display: block;
   background-color: #333;
@@ -75,6 +80,8 @@ button:hover {
   width: 60%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: width 0.5s;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .left-section {
@@ -110,28 +117,29 @@ button:hover {
   width: 8px; /* 设置滚动条的宽度 */
   height: 0vh;
 }
-
 /* 定义滚动条轨道的样式 */
 #itemList::-webkit-scrollbar-track {
   display: none;
   background-color: #f1f1f1; /* 设置滚动条轨道的背景色 */
 }
-
 /* 定义滚动条滑块的样式 */
 #itemList::-webkit-scrollbar-thumb {
   background-color: #888; /* 设置滚动条滑块的背景色 */
   border-radius: 4px; /* 设置滚动条滑块的边框半径 */
 }
-
 /* 定义滚动条滑块在 hover 状态下的样式 */
 #itemList::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* 设置滚动条滑块在 hover 状态下的背景色 */
 }
+#itemList .thumbnail {
+  max-height: 20vh;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.3s;
   background-color: #fff;
@@ -142,7 +150,7 @@ button:hover {
   cursor: pointer;
 }
 .item img {
-  width: 35%;
+  width: 150px;
   margin-right: 10px;
 }
 
@@ -150,6 +158,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 250px;
 }
 .item-name {
   max-width: 200px;
@@ -274,8 +283,12 @@ button:hover {
   background-color: #870000;
 }
 
+.bottom-area {
+  margin-top: auto;
+}
+
 #totalPrice {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 #totalPrice .total-price {
   padding: 5px 10px;
@@ -284,8 +297,8 @@ button:hover {
   background: khaki;
 }
 
-#checkoutBtn {
-  margin-top: auto;
+#checkoutButton {
+  width: 100%;
   background-color: #009688;
 }
 
@@ -422,20 +435,22 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 750px) {
-  .container {
-    width: 100%;
-    padding: 5px;
-    flex-direction: column;
-  }
-
+@media screen and (max-width: 750px), screen and (max-width: 980px) {
   #itemList {
     padding-right: 15px;
   }
 
   .item {
-    min-width: 361px;
+    min-width: 412px;
     margin: auto -10px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    width: 100%;
+    padding: 5px;
+    flex-direction: column;
   }
 }
 

@@ -37,7 +37,7 @@
 
 ```js
 const config = {
-    publicKey: 'YOUR_PUBLIC_API_KEY',          // Stripe提供的公钥
+    publicKey: 'YOUR_PUBLIC_API_KEY',      // Stripe提供的公钥
     orderCreateSite: '/stripe/create.php', // 支付处理后端接口
     returnUrl: 'http://test.com/stripe/'   // 支付成功/失败回调地址
 }
