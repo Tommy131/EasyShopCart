@@ -1,2 +1,5 @@
 vendor
+assets/js/config.js
+
 composer.lock
+secrets.php

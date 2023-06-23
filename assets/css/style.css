@@ -21,7 +21,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -84,7 +85,8 @@ button:hover {
   -webkit-user-drag: none;
 }
 
-.left-section {
+.left-section,
+.right-section {
   flex: 1;
   overflow: hidden;
   min-width: 50%;
@@ -95,16 +97,14 @@ button:hover {
 
 
 .right-section {
-  flex: 1;
-  display: flex;
   flex-direction: column;
   gap: 10px;
-  min-width: 50%;
-  padding: 20px;
+  overflow: unset;
   background-color: linen;
 }
 
-#itemList {
+#itemList,
+#cartList {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -112,25 +112,43 @@ button:hover {
   max-height: 43vh;
   padding-right: 5px;
 }
+
+#itemList {
+  max-height: 48vh;
+}
+
 /* 定义滚动条的样式 */
-#itemList::-webkit-scrollbar {
-  width: 8px; /* 设置滚动条的宽度 */
+#itemList::-webkit-scrollbar,
+#cartList::-webkit-scrollbar {
+  width: 8px;
+  /* 设置滚动条的宽度 */
   height: 0vh;
 }
+
 /* 定义滚动条轨道的样式 */
-#itemList::-webkit-scrollbar-track {
+#itemList::-webkit-scrollbar-track,
+#cartList::-webkit-scrollbar-track {
   display: none;
-  background-color: #f1f1f1; /* 设置滚动条轨道的背景色 */
+  background-color: #f1f1f1;
+  /* 设置滚动条轨道的背景色 */
 }
+
 /* 定义滚动条滑块的样式 */
-#itemList::-webkit-scrollbar-thumb {
-  background-color: #888; /* 设置滚动条滑块的背景色 */
-  border-radius: 4px; /* 设置滚动条滑块的边框半径 */
+#itemList::-webkit-scrollbar-thumb,
+#cartList::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* 设置滚动条滑块的背景色 */
+  border-radius: 4px;
+  /* 设置滚动条滑块的边框半径 */
 }
+
 /* 定义滚动条滑块在 hover 状态下的样式 */
-#itemList::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* 设置滚动条滑块在 hover 状态下的背景色 */
+#itemList::-webkit-scrollbar-thumb:hover,
+#cartList::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+  /* 设置滚动条滑块在 hover 状态下的背景色 */
 }
+
 #itemList .thumbnail {
   max-height: 20vh;
 }
@@ -144,11 +162,13 @@ button:hover {
   transition: background-color 0.3s, transform 0.3s;
   background-color: #fff;
 }
+
 .item:hover {
   background-color: #f7f7f7;
   transform: translateY(-5px);
   cursor: pointer;
 }
+
 .item img {
   width: 150px;
   margin-right: 10px;
@@ -160,6 +180,7 @@ button:hover {
   gap: 15px;
   width: 250px;
 }
+
 .item-name {
   max-width: 200px;
   font-weight: bold;
@@ -168,6 +189,7 @@ button:hover {
   overflow: hidden;
   white-space: nowrap;
 }
+
 .price-container {
   display: flex;
   flex-direction: row;
@@ -177,31 +199,40 @@ button:hover {
   min-width: 212px;
   text-align: center;
 }
+
 .price-container p {
   min-width: 60px;
 }
+
 .stock-info {
   font-size: 12px;
 }
+
 .stock-info span {
   font-weight: bold;
   font-size: 15px;
   color: green;
 }
+
 .stock-info span.tight-supply {
   color: #ff9000;
 }
+
 .stock-info span.inventory-shortage {
   color: #e91e63;
 }
-.normal-price, .discount-price {
+
+.normal-price,
+.discount-price {
   font-size: 1.2em;
   color: #000;
 }
+
 .discount-price {
   font-weight: bold;
   color: #ff0000;
 }
+
 .discount-percentage {
   padding: 5px;
   font-weight: bold;
@@ -210,14 +241,17 @@ button:hover {
   background-color: #4caf50;
   color: #fff;
 }
+
 .unavailable-price {
   text-decoration: line-through;
   font-size: 0.9em;
   color: #999;
 }
+
 .buy-button {
   background-color: #3f51b5;
 }
+
 .buy-button:hover {
   background-color: #1f2961;
 }
@@ -228,15 +262,19 @@ button:hover {
   flex-direction: column;
   gap: 15px;
 }
+
 .table-header {
   display: flex;
   justify-content: flex-start;
   font-weight: bold;
 }
-.table-header .width-fixed, .cart-item .width-fixed {
+
+.table-header .width-fixed,
+.cart-item .width-fixed {
   display: inline-flex;
   width: 100%;
 }
+
 .table-header span {
   width: 105px;
   padding-bottom: 5px;
@@ -244,14 +282,17 @@ button:hover {
   font-size: 17px;
   border-bottom: 2px solid #000;
 }
+
 .table-header span:nth-child(1) {
   width: 135px;
 }
+
 .cart-item {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
 }
+
 .cart-item span {
   width: 105px;
   text-align: center;
@@ -259,6 +300,7 @@ button:hover {
   overflow: hidden;
   white-space: nowrap;
 }
+
 .cart-item span:nth-child(1) {
   width: 135px;
   text-align: left;
@@ -272,6 +314,7 @@ button:hover {
   align-items: baseline;
   gap: 10px;
 }
+
 .button-area button {
   padding: 10px;
 }
@@ -279,6 +322,7 @@ button:hover {
 .delete-button {
   background-color: #a90000;
 }
+
 .delete-button:hover {
   background-color: #870000;
 }
@@ -290,6 +334,7 @@ button:hover {
 #totalPrice {
   margin: 15px 0;
 }
+
 #totalPrice .total-price {
   padding: 5px 10px;
   font-weight: bold;
@@ -364,6 +409,7 @@ button:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -373,6 +419,7 @@ button:hover {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -383,6 +430,7 @@ button:hover {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -394,6 +442,7 @@ button:hover {
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.8);
@@ -409,7 +458,7 @@ button:hover {
 
 @media screen and (min-width: 1650px) {
   #payment-form {
-    min-width: calc(100% - 72vw)!important;
+    min-width: calc(100% - 72vw) !important;
   }
 }
 
@@ -419,10 +468,12 @@ button:hover {
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 1370px), screen and (max-width: 650px) {
+@media screen and (min-width: 750px) and (max-width: 1370px),
+screen and (max-width: 650px) {
   .cart-item {
     flex-direction: column;
   }
+
   .button-area {
     margin-left: auto;
     margin-top: 10px;
@@ -435,7 +486,8 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 750px), screen and (max-width: 980px) {
+@media screen and (max-width: 750px),
+screen and (max-width: 980px) {
   #itemList {
     padding-right: 15px;
   }
@@ -497,9 +549,11 @@ button:hover {
   box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
 }
+
 #submit:hover {
   filter: contrast(115%);
 }
+
 #submit:disabled {
   opacity: 0.5;
   cursor: default;
@@ -510,6 +564,7 @@ button:hover {
 .spinner:after {
   border-radius: 50%;
 }
+
 .spinner {
   color: #ffffff;
   font-size: 22px;
@@ -523,11 +578,13 @@ button:hover {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
 .spinner:before,
 .spinner:after {
   position: absolute;
   content: "";
 }
+
 .spinner:before {
   width: 10.4px;
   height: 20.4px;
@@ -540,6 +597,7 @@ button:hover {
   -webkit-animation: loading 2s infinite ease 1.5s;
   animation: loading 2s infinite ease 1.5s;
 }
+
 .spinner:after {
   width: 10.4px;
   height: 10.2px;
@@ -558,16 +616,19 @@ button:hover {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes loading {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
